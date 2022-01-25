@@ -9,6 +9,30 @@ export const Container = styled.div`
   h1 {
     font-size: 2.5rem;
     color: #F2D64B;
-    margin-top: 10rem;
+    position: absolute
+  }
+`
+
+export const Jogo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem 10rem;
+  margin-top: 15rem;
+
+  h2 {
+    font-size: 1.5rem;
+    color: #fff
+  }
+
+  span {
+    color: #F2D64B;
+  }
+
+  h3 {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    color: #fff
   }
 `

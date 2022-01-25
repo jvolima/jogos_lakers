@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container } from "./styles";
+import { Container, Jogo } from "./styles";
 
 interface GameData {
   home_team: {
@@ -40,8 +40,13 @@ export function Home() {
 
   return (
     <Container>
-      <h1>Seja bem vindo torcedor do Lakers!</h1>
+      <h1>Jogo mais recente do Lakers</h1>
       
+      <Jogo>
+        <h2>{gameData?.home_team.full_name} : <span>{gameData?.home_team.home_team_score}</span></h2>
+        <h3>X</h3>
+        <h2>{gameData?.visitor_team.full_name} : <span>{gameData?.visitor_team.visitor_team_score}</span></h2>
+      </Jogo>
     </Container>
   )
 }
