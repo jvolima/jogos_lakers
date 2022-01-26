@@ -42,19 +42,27 @@ export function Home() {
 
   return (
     <Container>
-      <h1>Jogo mais recente do Lakers</h1>
+      <h1>Partida de hoje do Lakers</h1>
       
-      <Jogo>
-        {
-          gameData?.gameStatus === "Final" ? <h2>Jogo encerrado</h2>
-          : (gameData?.home_team.home_team_score && gameData?.visitor_team.visitor_team_score) === 0 
-          ? <h2>Próximo jogo em breve</h2> 
-          : <h2>Jogo em andamento</h2>
-        }
-        <h2>{gameData?.home_team.full_name} : <span>{gameData?.home_team.home_team_score}</span></h2>
-        <h3>X</h3>
-        <h2>{gameData?.visitor_team.full_name} : <span>{gameData?.visitor_team.visitor_team_score}</span></h2>
-      </Jogo>
+      {
+        gameData ? 
+        <Jogo>
+          {
+            gameData?.gameStatus === "Final" ? <h2>Jogo encerrado</h2>
+            : (gameData?.home_team.home_team_score && gameData?.visitor_team.visitor_team_score) === 0 
+            ? <h2>Próximo jogo em breve</h2> 
+            : <h2>Jogo em andamento</h2>
+          }
+          <h2>{gameData?.home_team.full_name} : <span>{gameData?.home_team.home_team_score}</span></h2>
+          <h3>X</h3>
+          <h2>{gameData?.visitor_team.full_name} : <span>{gameData?.visitor_team.visitor_team_score}</span></h2>
+
+        </Jogo>
+        : <>
+          <h2 className="mensagem">Nenhuma partida do Lakers hoje 🙁</h2> 
+        </>
+      }
+   
     </Container>
   )
 }

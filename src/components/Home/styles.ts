@@ -9,7 +9,17 @@ export const Container = styled.div`
   h1 {
     font-size: 2.5rem;
     color: #F2D64B;
-    position: absolute
+    position: absolute;
+    height: 200px
+  }
+
+  h2 {
+    &.mensagem {
+      font-size: 2rem;
+      margin-top: 12rem;
+      padding: 5rem 0;
+      color: #fff;
+    }
   }
 `
 
