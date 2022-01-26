@@ -23,7 +23,13 @@ export const Jogo = styled.div`
 
   h2 {
     font-size: 1.5rem;
-    color: #fff
+    color: #fff;
+
+    &:first-child {
+      margin: 1rem 0;
+      padding-bottom: 1rem 0;
+      font-size: 1.7rem
+    }
   }
 
   span {

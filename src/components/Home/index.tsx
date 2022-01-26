@@ -9,7 +9,8 @@ interface GameData {
   visitor_team: {
     full_name: string;
     visitor_team_score: number;
-  }
+  },
+  gameStatus: string;
 }
 
 export function Home() {
@@ -30,7 +31,8 @@ export function Home() {
         visitor_team: {
           full_name: data.data[0].visitor_team.full_name,
           visitor_team_score: data.data[0].visitor_team_score
-        }
+        },
+        gameStatus: data.data[0].status
       }
       setGameData(gameInfo)
     })
@@ -43,6 +45,12 @@ export function Home() {
       <h1>Jogo mais recente do Lakers</h1>
       
       <Jogo>
+        {
+          gameData?.gameStatus === "Final" ? <h2>Jogo encerrado</h2>
+          : (gameData?.home_team.home_team_score && gameData?.visitor_team.visitor_team_score) === 0 
+          ? <h2>Próximo jogo em breve</h2> 
+          : <h2>Jogo em andamento</h2>
+        }
         <h2>{gameData?.home_team.full_name} : <span>{gameData?.home_team.home_team_score}</span></h2>
         <h3>X</h3>
         <h2>{gameData?.visitor_team.full_name} : <span>{gameData?.visitor_team.visitor_team_score}</span></h2>
